@@ -19,6 +19,15 @@ Future _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('A bg message just showed up : ${message.messageId}');
 }
 
+// Future<void> saveTokenToDatabase(String token) async {
+//   // Assume user is logged in for this example
+//   String userId = FirebaseAuth.instance.currentUser.uid;
+
+//   await FirebaseFirestore.instance.collection('users').doc(userId).update({
+//     'tokens': FieldValue.arrayUnion([token]),
+//   });
+// }
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -48,6 +57,24 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    // NotificationSettings settings = await messaging.requestPermission(
+    //   alert: true,
+    //   announcement: false,
+    //   badge: true,
+    //   carPlay: false,
+    //   criticalAlert: false,
+    //   provisional: false,
+    //   sound: true,
+    // );
+    messaging.getToken().then((value) => print('Device Token : ' + value));
+
+    // Save the initial token to the database
+    // await saveTokenToDatabase(token);
+    FirebaseMessaging.instance.subscribeToTopic('weather').then((value) => {});
+
+    // Any time the token refreshes, store this in the database too.
+    // FirebaseMessaging.instance.onTokenRefresh.listen(saveTokenToDatabase);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification notification = message.notification;
       AndroidNotification android = message.notification?.android;
