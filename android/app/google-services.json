@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669018650937",
+    "project_id": "ccm-fcm-notif",
+    "storage_bucket": "ccm-fcm-notif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669018650937:android:116b6b17155f056b6a50e8",
+        "android_client_info": {
+          "package_name": "com.example.flutter_riverpod_hooks1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669018650937-hle6m1gpcmc6jr2t5dblg5256a40pl9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf31jG6JdeMXLaJSMNUhEF0bit6hvSEaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669018650937-hle6m1gpcmc6jr2t5dblg5256a40pl9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
